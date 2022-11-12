@@ -18,6 +18,7 @@ const Navbar = () => {
                     <h1>Geles IS</h1>
                 </Link>
                 <nav>
+                    <Link to="/worker">Darbuotojas</Link>
                     <Link to="/login">Log in</Link>
                     <Link to="/signup">Sign up</Link>
                 </nav>
