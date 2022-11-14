@@ -19,7 +19,11 @@ const Navbar = () => {
                 </Link>
                 <nav>
                     <Link to="/worker">Darbuotojas</Link>
+
                     <Link to="/store">Parduotuvė</Link>
+
+                    <Link to="/workerlist">Darbuotojai</Link>
+
                     <Link to="/order">Užsakymai</Link>
                     <Link to="/login">Log in</Link>
                     <Link to="/signup">Sign up</Link>
