@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Worker from './pages/Worker';
 import Order from './pages/Order'
+import WorkerList from './pages/WorkerList'
 
 function App() {
   //const { user } = useAuthContext();
@@ -21,6 +22,7 @@ function App() {
             <Route path='/worker' element={<Worker />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/workerlist" element={<WorkerList />} />
           </Routes>
         </div>
       </BrowserRouter>
