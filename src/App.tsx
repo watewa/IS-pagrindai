@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Worker from './pages/Worker';
 import Order from './pages/Order'
+import Store from './pages/Store';
 
 function App() {
   //const { user } = useAuthContext();
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path='/order' element={<Order />} />
             <Route path='/worker' element={<Worker />} />
+            <Route path='/store' element={<Store />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
