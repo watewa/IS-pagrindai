@@ -88,7 +88,7 @@ header .container img{
 
 .button {
   background-color: white; /* Green */
-  border: 2px solid #4CAF50;
+  border: 2px solid var(--primary);
   color: black;
   padding: 8px 16px;
   text-align: center;
@@ -102,7 +102,7 @@ header .container img{
 }
 
 .button:hover {
-  background-color: #4CAF50;
+  background-color: var(--primary);
   color: white;
 }
 

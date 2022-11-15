@@ -2,7 +2,7 @@ import {
     useNavigate
 } from 'react-router-dom';
 
-const NewStorePage = () => {
+const NewStore = () => {
     const navigate = useNavigate();
 
     return (
@@ -10,24 +10,19 @@ const NewStorePage = () => {
             <h2>Nauja parduotuvė</h2>
             <form method="post">
                 <div className="grid form center">
-                    <label htmlFor="name">Vardas</label>
+                    <label htmlFor="name">Pavadinimas</label>
                     <input type="text" name="name" id="" />
 
-                    <label htmlFor="surname">Pavardė</label>
-                    <input type="text" name="surname" id="" />
-
-                    <label htmlFor="date">Gimimo data</label>
-                    <input type="date" name="date" id="" />
-
-                    <label htmlFor="email">El. paštas</label>
-                    <input type="email" name="email" id="" />
-
-                    <label htmlFor="address">Adresas</label>
+                    <label htmlFor="surname">Adresas</label>
                     <input type="text" name="address" id="" />
+
+                    <label htmlFor="date">Vadovas</label>
+                    <input type="date" name="manager" id="" />
+
                 </div>
                 <button className="button" onClick={() => navigate("/workerlist")}>Pateikti</button>
             </form>
         </div>
     )
 }
-export default NewStorePage;
+export default NewStore;
