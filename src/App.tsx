@@ -12,6 +12,7 @@ import Store from './pages/Stores/Store';
 import WorkerList from './pages/WorkerList'
 import NewWorker from './pages/NewWorker'
 import NewStore from './pages/Stores/NewStore';
+import InfoStore from './pages/Stores/InfoStore';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/workerlist" element={<WorkerList />} />
             <Route path="/newstore" element={<NewStore />} />
+            <Route path="/infostore" element={<InfoStore />} />
           </Routes>
         </div>
       </BrowserRouter>
