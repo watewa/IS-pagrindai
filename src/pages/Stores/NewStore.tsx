@@ -29,7 +29,7 @@ const NewStore = () => {
                     <input type="text" name="expenses" id="" />
 
                 </div>
-                <button className="button" onClick={() => navigate("/workerlist")}>Pridėti</button>
+                <button className="button" onClick={() => navigate("/store")}>Pridėti</button>
             </form>
         </div>
     )
