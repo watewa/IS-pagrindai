@@ -14,9 +14,11 @@ const Navbar = () => {
     return (
         <header>
             <div className="container">
+                
                 <Link to="/">
-                    <h1>Geles IS</h1>
+                    <img src="logo-blue.png"></img>
                 </Link>
+                
                 <nav>
                     <Link to="/worker/1">Darbuotojas</Link>
 
