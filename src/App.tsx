@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 import Worker from './pages/Worker';
 import Order from './pages/Order'
 
-import Store from './pages/Store';
+import Store from './pages/Stores/Store';
 
 import WorkerList from './pages/WorkerList'
 import NewWorker from './pages/NewWorker'

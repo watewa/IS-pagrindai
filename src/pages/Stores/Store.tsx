@@ -3,7 +3,9 @@ import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { faInfo} from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from "react-router-dom";
 const Store = () => {
+    
     return (
         <div>
             <h2>Parduotuvių valdymo skydas</h2>
