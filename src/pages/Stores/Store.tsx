@@ -3,7 +3,9 @@ import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { faInfo} from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from "react-router-dom";
 const Store = () => {
+    const navigate = useNavigate();
     return (
         <div>
             <h2>Parduotuvių valdymo skydas</h2>
@@ -21,7 +23,7 @@ const Store = () => {
                         <td>Centrinė</td> 
                         <td>Gričiupio g. 1</td>
                         <td>Jonas Jonaitis</td>
-                        <td><button><FontAwesomeIcon icon={faPlus} /></button>
+                        <td><button onClick={() => navigate("/newstore")}><FontAwesomeIcon icon={faPlus} /></button>
                             <button><FontAwesomeIcon icon={faPenToSquare} /></button>
                             <button><FontAwesomeIcon icon={faClose} /></button>
                             <button><FontAwesomeIcon icon={faInfo} /></button>

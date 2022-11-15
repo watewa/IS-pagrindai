@@ -7,10 +7,11 @@ import Navbar from './components/Navbar';
 import Worker from './pages/Worker';
 import Order from './pages/Order'
 
-import Store from './pages/Store';
+import Store from './pages/Stores/Store';
 
 import WorkerList from './pages/WorkerList'
 import NewWorker from './pages/NewWorker'
+import NewStore from './pages/Stores/NewStore';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/workerlist" element={<WorkerList />} />
+            <Route path="/newstore" element={<NewStore />} />
           </Routes>
         </div>
       </BrowserRouter>
