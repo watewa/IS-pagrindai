@@ -20,11 +20,12 @@ const Store = () => {
                         <td>Karaliaus Mindaugo pr. 1</td> 
                     </tr>
                 </table>
-                <div className="button-group">
-                    <button type="button">
-                        Ištrinti parduotuvę
-                    </button>
-                </div>
+                <nav className="button-group">
+                  <button>One</button>
+                  <button>Two</button>
+                  <button>Three is really long</button>
+                  <button>Four</button>
+                </nav>
             </div>
             
             

@@ -1,5 +1,7 @@
 :root {
-  --primary: #1aac83;
+  --primary: #539987;
+  --secondary: #0267C1;
+  --accent: #F08700;
   --error: #e7195a;
 }
 
@@ -33,7 +35,7 @@ body {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #539987;
+  background-color: var(--primary);
   color: white;
 }
 
@@ -58,7 +60,7 @@ header .container {
   
 }
 header .container :hover{
-color: #539987;
+color: var(--primary);
   
   
 }
@@ -107,7 +109,28 @@ form button {
   border-radius: 4px;
   cursor: pointer;
 }
-
+.button-group {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+.button-group button{
+  background: #fff;
+  color: var(--primary);
+  border: 3px solid var(--primary);
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-family: Roboto;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 20px;
+  
+}
+.button-group button:hover{
+  background-color: var(--secondary);
+  color: white;
+  border-color: var(--accent);
+}
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -150,7 +173,7 @@ nav button {
   border: 2px solid var(--primary);
   padding: 6px 10px;
   border-radius: 4px;
-  font-family: Nunito;
+  font-family: Roboto;
   cursor: pointer;
   font-size: 1rem;
   margin-left: 10px;
