@@ -10,6 +10,7 @@ import Order from './pages/Order'
 import Store from './pages/Store';
 
 import WorkerList from './pages/WorkerList'
+import NewWorker from './pages/NewWorker'
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/order' element={<Order />} />
-            <Route path='/worker' element={<Worker />} />
+            <Route path='/worker/:id' element={<Worker />} />
+            <Route path='/newworker' element={<NewWorker />} />
             <Route path='/store' element={<Store />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
