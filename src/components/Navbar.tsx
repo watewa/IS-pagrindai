@@ -18,7 +18,7 @@ const Navbar = () => {
                     <h1>Geles IS</h1>
                 </Link>
                 <nav>
-                    <Link to="/worker">Darbuotojas</Link>
+                    <Link to="/worker/1">Darbuotojas</Link>
 
                     <Link to="/store">Parduotuvė</Link>
 

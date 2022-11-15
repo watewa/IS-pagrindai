@@ -16,7 +16,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  max-width: 700px;
   margin: auto;
 }
 
@@ -39,6 +38,8 @@ body {
 
 .center {
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 header {
@@ -52,6 +53,52 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.button {
+  background-color: white; /* Green */
+  border: 2px solid #4CAF50;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 150px auto;
+  gap: 8px;
+}
+
+.form input {
+  padding: 8px;
+  width: 200px;
+}
+
+.form label {
+  text-align: right;
+  margin-right: 4px;
+}
+
+.box {
+  max-width: 700px;
+  margin: auto;
 }
 
 header a {
