@@ -17,10 +17,19 @@ const NewStore = () => {
                     <input type="text" name="address" id="" />
 
                     <label htmlFor="date">Vadovas</label>
-                    <input type="date" name="manager" id="" />
+                    <input type="text" name="manager" id="" />
+
+                    <label htmlFor="date">Darbuotojų skaičius</label>
+                    <input type="text" name="workers" id="" />
+
+                    <label htmlFor="date">Apyvarta</label>
+                    <input type="text" name="bruto" id="" />
+
+                    <label htmlFor="date">Išleista pinigų</label>
+                    <input type="text" name="expenses" id="" />
 
                 </div>
-                <button className="button" onClick={() => navigate("/workerlist")}>Pateikti</button>
+                <button className="button" onClick={() => navigate("/workerlist")}>Pridėti</button>
             </form>
         </div>
     )
