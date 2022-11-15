@@ -46,14 +46,26 @@ header {
 }
 
 header .container {
+  font: Roboto;
+  font-size: 18px;
   max-width: 1400px;
   margin: 0 auto;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  
 }
-
+header .container :hover{
+color: #539987;
+  
+  
+}
+header .container img{
+  width: 100px;
+  
+}
 header a {
   color: #333;
   text-decoration: none;
