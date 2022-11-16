@@ -1,4 +1,7 @@
 import './Order.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 type ItemObject = {
     Name: string;
@@ -25,6 +28,20 @@ var MyOrders: OrderObject[] = [
     {Id: 123456789, Date: '2022-12-01', Items: [{Name:"Tulpė", Quantity:2}], Total: 3.10}
 ]
 
+const userPreference = () => {
+    var userPreference;
+    const button = document.getElementById("msg");
+    if (window.confirm("Ar tikrai norite ištrinti?") === true) {
+        userPreference = "Sėkmingai ištrinta!";
+    } else {
+        userPreference = "Ištrinimas atšauktas!";
+    }
+    if(button != null){
+        button.innerHTML = userPreference; 
+    }
+
+}
+
 const OrderBasket = MyItems.map((ItemObject) => (
     <div className="basketCard" key={ItemObject.Name}>
         <div className="basketCardBody">
@@ -39,7 +56,7 @@ const OrderBasket = MyItems.map((ItemObject) => (
                 </div>
             </div>
             <div className="basketCardButton">
-                <button>Pašalinti</button>
+                <button className ="button" onClick={() => userPreference()}><FontAwesomeIcon icon={faClose}/></button>
             </div>
         </div>
     </div>
@@ -65,8 +82,8 @@ const OrderHistory = MyOrders.map((OrderObject) => (
                 <div>{OrderObject.Total}</div>
             </div>
             <div className="orderCardButton">
-                <button>Tvarkyti</button>
-                <button>Atšaukti</button>
+                <button className ="button" onClick={() => userPreference()}><FontAwesomeIcon icon={faPenToSquare}/></button>
+                <button className ="button" onClick={() => userPreference()}><FontAwesomeIcon icon={faClose}/></button>
             </div>
         </div>
     </div>
@@ -83,14 +100,14 @@ const Order = () => {
                     <h2>Krepšelis</h2>
                     <div>{OrderBasket}</div>
                     <div className="confirm">
-                        <button type="button">Tvirtinti užsakymą {">>"}</button>
+                        <button type="button" className ="button">Tvirtinti užsakymą {">>"}</button>
                     </div>
                 </div>
                 <hr></hr>
                 <div>
                     <h2>Užsakymo sekimas</h2>
                     <div className="confirm">
-                        <button type="button">Sekti užsakymą {">>"}</button>
+                        <button type="button" className ="button">Sekti užsakymą {">>"}</button>
                     </div>
                 </div>
                 <hr></hr>
