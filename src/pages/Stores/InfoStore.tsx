@@ -1,12 +1,12 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClose } from '@fortawesome/free-solid-svg-icons'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-import { faInfo} from '@fortawesome/free-solid-svg-icons'
-import { useNavigate } from "react-router-dom";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faClose } from '@fortawesome/free-solid-svg-icons'
+// import { faPlus } from '@fortawesome/free-solid-svg-icons'
+// import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+// import { faInfo} from '@fortawesome/free-solid-svg-icons'
+// import { useNavigate } from "react-router-dom";
 
 const InfoStore = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     return (
         <div>
             <div className= "container">
