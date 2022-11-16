@@ -20,7 +20,7 @@ const userPreference = () => {
 const Store = () => {
     const navigate = useNavigate();
     return (
-        <div>
+        <div >
             <div className= "container">
             <div className = "center">
                 <h2>Parduotuvių valdymo skydas</h2>
