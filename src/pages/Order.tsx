@@ -82,7 +82,7 @@ const OrderHistory = MyOrders.map((OrderObject) => (
                 <div>{OrderObject.Total}</div>
             </div>
             <div className="orderCardButton">
-                <button className ="button" onClick={() => userPreference()}><FontAwesomeIcon icon={faPenToSquare}/></button>
+                <button className ="button"><FontAwesomeIcon icon={faPenToSquare}/></button>
                 <button className ="button" onClick={() => userPreference()}><FontAwesomeIcon icon={faClose}/></button>
             </div>
         </div>
