@@ -20,6 +20,8 @@ const Navbar = () => {
                 </Link>
                 
                 <nav>
+                    <Link to="/item">Prekė</Link>
+
                     <Link to="/worker/1">Darbuotojas</Link>
 
                     <Link to="/store">Parduotuvė</Link>

@@ -9,6 +9,8 @@ import Order from './pages/Order'
 
 import Store from './pages/Stores/Store';
 
+import Item from './pages/Item';
+
 import WorkerList from './pages/WorkerList'
 import NewWorker from './pages/NewWorker'
 import NewStore from './pages/Stores/NewStore';
@@ -29,6 +31,7 @@ function App() {
             <Route path='/worker/:id' element={<Worker />} />
             <Route path='/newworker' element={<NewWorker />} />
             <Route path='/store' element={<Store />} />
+            <Route path='/item' element={<Item />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/workerlist" element={<WorkerList />} />
