@@ -3,6 +3,11 @@ import {
     useNavigate
 } from "react-router-dom";
 
+import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { faInfo} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const ListPage = () => {
     const navigate = useNavigate();
     return (
@@ -19,8 +24,7 @@ const ListPage = () => {
                         <th>Pavardė</th>
                         <th>Gimimo data</th>
                         <th>El. paštas</th>
-                        <th>Ištrinti</th>
-                        <th>Redaguoti</th>
+                        <th>Operacijos</th>
                     </tr>
                     <tr>
                         <td>1</td>
@@ -28,8 +32,11 @@ const ListPage = () => {
                         <td>Petraitis</td>
                         <td>1989-07-16</td>
                         <td>jonas@gmail.com</td>
-                        <td><button>Trinti</button></td>
-                        <td><Link to={`/worker/42`}>Redaguoti</Link></td>
+                        <td>
+                            <button onClick={() => navigate("/newworker")}><FontAwesomeIcon icon={faPenToSquare} /></button>
+                            <button onClick={() => alert("deleted")}><FontAwesomeIcon icon={faClose} /></button>
+                            <button onClick={() => navigate("/worker/42")}><FontAwesomeIcon icon={faInfo} /></button>
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -37,8 +44,11 @@ const ListPage = () => {
                         <td>Petraitis</td>
                         <td>1989-07-16</td>
                         <td>jonas@gmail.com</td>
-                        <td><button>Trinti</button></td>
-                        <td><Link to={`/worker/420`}>Redaguoti</Link></td>
+                        <td>
+                            <button onClick={() => navigate("/newworker")}><FontAwesomeIcon icon={faPenToSquare} /></button>
+                            <button onClick={() => alert("deleted")}><FontAwesomeIcon icon={faClose} /></button>
+                            <button onClick={() => navigate("/worker/402")}><FontAwesomeIcon icon={faInfo} /></button>
+                        </td>
                     </tr>
                     <tr>
                         <td>3</td>
@@ -46,8 +56,11 @@ const ListPage = () => {
                         <td>Petraitis</td>
                         <td>1989-07-16</td>
                         <td>jonas@gmail.com</td>
-                        <td><button>Trinti</button></td>
-                        <td><Link to={`/worker/314`}>Redaguoti</Link></td>
+                        <td>
+                            <button onClick={() => navigate("/newworker")}><FontAwesomeIcon icon={faPenToSquare} /></button>
+                            <button onClick={() => alert("deleted")}><FontAwesomeIcon icon={faClose} /></button>
+                            <button onClick={() => navigate("/worker/420")}><FontAwesomeIcon icon={faInfo} /></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
