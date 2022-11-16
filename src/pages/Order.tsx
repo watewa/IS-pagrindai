@@ -88,6 +88,13 @@ const Order = () => {
                 </div>
                 <hr></hr>
                 <div>
+                    <h2>Užsakymo sekimas</h2>
+                    <div className="confirm">
+                        <button type="button">Sekti užsakymą {">>"}</button>
+                    </div>
+                </div>
+                <hr></hr>
+                <div>
                     <h2>Užsakymų istorija</h2>
                     <div>{OrderHistory}</div>
                 </div>
