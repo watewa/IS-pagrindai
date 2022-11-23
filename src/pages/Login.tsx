@@ -1,17 +1,16 @@
-//import { useLogin } from "../hooks/useLogin";
-
-const { useState } = require("react")
+import { useLogin } from "../hooks/useLogin";
+import { useState } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Login = () => {
+    const { user } :any = useAuthContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const { login, error, isLoading } = useLogin();
-    const isLoading = false;
-    const error = null;
-    const handleSubmit = async (e : any) => {
+    const { login, error, isLoading } = useLogin();
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         console.log("login..");
-        //await login(email, password);
+        await login(email, password);
     }
 
     return (
@@ -31,6 +30,7 @@ const Login = () => {
             />
             <button disabled={isLoading}>Log in</button>
             {error && <div className="error">{error}</div>}
+            {user && user.email && <div>logged in</div>}
         </form>
     )
 }

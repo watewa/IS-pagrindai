@@ -239,6 +239,11 @@ form.login {
   background: #0af;
   border-radius: 4px;
 }
+form.login input {
+  width: 80%;
+  margin: 8px auto;
+  padding: 6px;
+}
 
 nav button {
   background: #fff;
