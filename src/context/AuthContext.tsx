@@ -19,7 +19,10 @@ export const AuthContextProvider = ({ children } :any) => {
     });
 
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user') || '{}');
+        let user = JSON.parse(localStorage.getItem('user') || '{}');
+        if(Object.keys(user).length == 0){
+            user = null;
+        }
 
         if (user) {
             dispatch({ type: 'LOGIN', payload: user });

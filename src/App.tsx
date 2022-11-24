@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
+import { useAuthContext } from './hooks/useAuthContext';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
@@ -18,7 +19,7 @@ import InfoStore from './pages/Stores/InfoStore';
 
 
 function App() {
-  //const { user } = useAuthContext();
+  const { user } = useAuthContext();
 
   return (
     <div className="App">
@@ -27,16 +28,16 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path='/order' element={<Order />} />
-            <Route path='/worker/:id' element={<Worker />} />
-            <Route path='/newworker' element={<NewWorker />} />
-            <Route path='/store' element={<Store />} />
-            <Route path='/item' element={<Item />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/workerlist" element={<WorkerList />} />
-            <Route path="/newstore" element={<NewStore />} />
-            <Route path="/infostore" element={<InfoStore />} />
+            <Route path='/order' element={user ? <Order /> : <Navigate to="/login" />} />
+            <Route path='/worker/:id' element={user ? <Worker /> : <Navigate to="/login" />} />
+            <Route path='/newworker' element={user ? <NewWorker /> : <Navigate to="/login" />} />
+            <Route path='/store' element={user ? <Store /> : <Navigate to="/login" />} />
+            <Route path='/item' element={user ? <Item /> : <Navigate to="/login" />} />
+            <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+            <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
+            <Route path="/workerlist" element={user ? <WorkerList /> : <Navigate to="/login" />} />
+            <Route path="/newstore" element={user ? <NewStore /> : <Navigate to="/login" />} />
+            <Route path="/infostore" element={user ? <InfoStore /> : <Navigate to="/login" />} />
           </Routes>
         </div>
       </BrowserRouter>

@@ -1,16 +1,22 @@
 import { useLogin } from "../hooks/useLogin";
 import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { user } :any = useAuthContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { login, error, isLoading } = useLogin();
+    const navigate = useNavigate();
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        console.log("login..");
+
         await login(email, password);
+
+        if(error != null){
+            navigate("/");
+        }
     }
 
     return (
@@ -18,7 +24,9 @@ const Login = () => {
             <h3>Log in</h3>
             <label>Email:</label>
             <input
-                type="email"
+                type="text"
+                pattern="[A-Za-z0-9]+"
+                title="Tik skaičiai ir raidės"
                 onChange={e => setEmail(e.target.value)}
                 value={email}
             />
@@ -30,7 +38,7 @@ const Login = () => {
             />
             <button disabled={isLoading}>Log in</button>
             {error && <div className="error">{error}</div>}
-            {user && user.email && <div>logged in</div>}
+            {user && <div>logged in</div>}
         </form>
     )
 }
