@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children } :any) => {
 
     useEffect(() => {
         let user = JSON.parse(localStorage.getItem('user') || '{}');
-        if(Object.keys(user).length == 0){
+        if(Object.keys(user).length === 0){
             user = null;
         }
 
