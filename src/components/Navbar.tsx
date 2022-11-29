@@ -5,7 +5,7 @@ import { useLogout } from "../hooks/useLogout"
 const Navbar = () => {
 
     const { logout } = useLogout();
-    const { user } = useAuthContext();
+    const { user }:any = useAuthContext();
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -28,15 +28,15 @@ const Navbar = () => {
                             <Link to="/signup">Sign up</Link>
                         </> : // connected as someone no clue...
                         <>
-                            <Link to="/item">Prekė</Link>
+                            {user.tipas >= 0 ? <Link to="/item">Prekė</Link> : ""}
 
-                            <Link to="/worker/1">Darbuotojas</Link>
+                            {user.tipas >= 1 ? <Link to={`/worker/${user._id}`}>Darbuotojas</Link> : ""}
 
-                            <Link to="/store">Parduotuvė</Link>
+                            {user.tipas >= 0 ? <Link to="/store">Parduotuvė</Link> : ""}
 
-                            <Link to="/workerlist">Darbuotojai</Link>
+                            {user.tipas >= 42 ? <Link to="/workerlist">Darbuotojai</Link> : ""}
 
-                            <Link to="/order">Užsakymai</Link>
+                            {user.tipas >= 0 ? <Link to="/order">Užsakymai</Link> : ""}
 
                             <button onClick={handleLogout}>Log out</button>
 

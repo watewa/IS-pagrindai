@@ -18,9 +18,9 @@ const Signup = () => {
     const handleSubmit = async (e :any) => {
         e.preventDefault();
         console.log("singup");
-        await signup(email, password);
-        console.log(error);
-        if(error != null){
+        const succ = await signup(email, password);
+        console.log("error: ", error);
+        if(succ){
             navigate("/");
         }
     }

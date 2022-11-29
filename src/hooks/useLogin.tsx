@@ -20,6 +20,7 @@ export const useLogin = () => {
         if (!res.ok) {
             setIsLoading(false);
             setError(json.error);
+            return false;
         } else {
             // saving to local storage
             localStorage.setItem('user', JSON.stringify(json));
@@ -28,6 +29,7 @@ export const useLogin = () => {
             dispatch({ type: "LOGIN", payload: json });
 
             setIsLoading(false);
+            return true;
         }
     }
     return { login, isLoading, error };

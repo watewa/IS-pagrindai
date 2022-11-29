@@ -1,6 +1,19 @@
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 
+// i dunno everywhere i use these i get errors so f them.. use as reference
+export enum Privileges {
+    User = 0,
+    Worker = 1,
+    Admin = 42
+}
+
+export interface User {
+    username: string,
+    tipas: Privileges,
+    token: string
+}
+
 export const useAuthContext = () => {
     const context = useContext(AuthContext);
 
