@@ -20,14 +20,16 @@ const Worker = () => {
                     }
                 });
                 const json = await res.json();
+                if(!json.worker){
+                    throw Error("Darbuotojo duomenys nerasti");
+                }
                 setWorker(json.worker);
                 if (!res.ok) {
                     throw Error("Nepavyko gauti darbuotojo");
                 }
+                setIsLoading(false);
             } catch (err: any) {
                 setErrors(w => [...w, err.message]);
-            } finally {
-                setIsLoading(false);
             }
         }
         fetchWorker();
@@ -65,10 +67,10 @@ const Worker = () => {
                         </tbody>
                     </table>
                 </div>
-                {errors.length > 0 ? <div className="error">{errors.map((w, ind) => (
-                    <p key={ind}>{w}</p>
-                ))}</div> : ""}
             </>}
+            {errors.length > 0 ? <div className="error">{errors.map((w, ind) => (
+                <p key={ind}>{w}</p>
+            ))}</div> : ""}
         </div>
     )
 }

@@ -26,7 +26,6 @@ function App() {
   const isUser = (priv: Privileges): boolean => {
     if(user == null)
       return false;
-    
     if(priv === user.tipas){
       return true;
     }
@@ -41,7 +40,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/order' element={isUser(Privileges.User) ? <Order /> : <Navigate to="/login" />} />
-            <Route path='/worker/:id' element={isUser(Privileges.Worker | Privileges.Admin) ? <Worker /> : <Navigate to="/login" />} />
+            <Route path='/worker/:id' element={(isUser(Privileges.Worker) || isUser(Privileges.Admin)) ? <Worker /> : <Navigate to="/login" />} />
             <Route path='/editworker/:id' element={isUser(Privileges.Admin) ? <EditWorker /> : <Navigate to="/login" />} />
             <Route path='/newworker' element={isUser(Privileges.Admin) ? <NewWorker /> : <Navigate to="/login" />} />
             <Route path="/workerlist" element={isUser(Privileges.Admin) ? <WorkerList /> : <Navigate to="/login" />} />
