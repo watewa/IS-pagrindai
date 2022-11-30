@@ -125,7 +125,7 @@ header .container img{
   gap: 8px;
 }
 
-.form input {
+.form input, .form select, .form option {
   padding: 8px;
   width: 200px;
 }
@@ -136,7 +136,7 @@ header .container img{
 }
 
 .box {
-  max-width: 700px;
+  max-width: 1200px;
   margin: auto;
 }
 
