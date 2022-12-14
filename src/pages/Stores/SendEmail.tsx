@@ -1,13 +1,9 @@
 import { useState } from "react";
-import { useAuthContext } from "../../hooks/useAuthContext";
 
 const SendEmail = () => {
     const [buyer, setBuyer] = useState("");
     const [ordernum, setOrderNum] = useState("");
     const [email, setEmail] = useState("");
-    const [errors, setErrors] = useState<Array<string>>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-    const { user }: any = useAuthContext();
 
 return (
     <div className="box">
@@ -25,11 +21,8 @@ return (
 
                 
             </div>
-            <button className="button" disabled={isLoading} onClick={e => SendEmail()}>Siųsti</button>
+            <button className="button" onClick={e => SendEmail()}>Siųsti</button>
         </form>
-        {errors.length > 0 ? <div className="error">{errors.map((w, ind) => (
-            <p key={ind}>{w}</p>
-        ))}</div> : ""}
     </div>
 )
 }
