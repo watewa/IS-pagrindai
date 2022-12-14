@@ -14,7 +14,7 @@ import OrderHistory from './pages/Order/OrderHistory';
 
 import Store from './pages/Stores/Store';
 import EditStore from './pages/Stores/EditStore';
-//import SendEmail from './pages/Stores/SendEmail';
+import SendEmail from './pages/Stores/SendEmail';
 import NewStore from './pages/Stores/NewStore';
 import InfoStore from './pages/Stores/InfoStore';
 
@@ -23,6 +23,7 @@ import Item from './pages/Item';
 import WorkerList from './pages/Worker/WorkerList'
 import NewWorker from './pages/Worker/NewWorker'
 import EditWorker from './pages/Worker/EditWorker';
+
 
 
 
@@ -59,8 +60,8 @@ function App() {
 
             <Route path='/store' element={isUser(Privileges.Admin) ? <Store /> : <Navigate to="/login" />} />
             <Route path="/newstore" element={isUser(Privileges.Admin) ? <NewStore /> : <Navigate to="/login" />} />
-            <Route path="/infostore" element={isUser(Privileges.Admin) ? <InfoStore
-             /> : <Navigate to="/login" />} />
+            <Route path="/infostore" element={isUser(Privileges.Admin) ? <InfoStore/> : <Navigate to="/login" />} />
+            <Route path="/sendemail" element={isUser(Privileges.Admin) ? <SendEmail/> : <Navigate to="/login" />} />
             <Route path="/editstore/:id" element={isUser(Privileges.Admin) ? <EditStore /> : <Navigate to="/login" />} />
 
             <Route path='/item' element={isUser(Privileges.User) ? <Item /> : <Navigate to="/login" />} />

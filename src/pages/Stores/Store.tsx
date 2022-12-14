@@ -64,7 +64,7 @@ const Store = () => {
                 <h2 className="center">Parduotuvių sąrašas:</h2>
                 <div className="flex-end">
                     <button className="button" onClick={() => navigate("/newstore")}>Naujas</button>
-                    <button className="button" onClick={() => navigate("/sendmail")}>Siųsti laišką</button>
+                    <button className="button" onClick={() => navigate("/sendemail")}>Siųsti laišką</button>
                 </div>
                 {stores.length > 0 ? <table id="table">
                     <tbody>
