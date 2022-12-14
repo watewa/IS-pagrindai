@@ -12,7 +12,7 @@ const EditStore = () => {
     const { user }: any = useAuthContext();
     const [isFetching, setIsFetching] = useState(true);
     const { id } = useParams();
-
+    
     const CreateStore = async (vnt: any) => {
         vnt.preventDefault();
         let errs: Array<string> = [];
@@ -52,6 +52,47 @@ const EditStore = () => {
             }
         }
     }
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const res = await fetch(`${process.env.REACT_APP_APIURL}/api/workers/users`, {
+                    headers: {
+                        'Authorization': `Bearer ${user.token}`
+                    }
+                });
+                const json = await res.json();
+                if (!res.ok) {
+                    throw Error(json.error);
+                }
+                setUsers(json.users);
+            } catch (err: any) {
+                setErrors(w => [...w, err.message]);
+            }
+        }
+        const fetchStore = async () => {
+            try {
+                const res = await fetch(`${process.env.REACT_APP_APIURL}/api/store/worker/${id}`, {
+                    headers: {
+                        'Authorization': `Bearer ${user.token}`
+                    }
+                });
+                const json = await res.json();
+                if (!res.ok) {
+                    throw Error(json.error);
+                }
+                setName(json.worker.vardas);
+                setAddress(json.worker.adresas);
+                
+            } catch (err: any) {
+                setErrors(w => [...w, err.message]);
+            } finally {
+                setIsFetching(false);
+            }
+        }
+        fetchStore();
+        fetchUsers();
+    }, [user, id]);
 
     return (
         <div className="box">
