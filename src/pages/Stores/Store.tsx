@@ -82,7 +82,6 @@ const Store = () => {
                                 <td>
                                     <button onClick={() => navigate(`/editstore/${w.id_Parduotuve}`)}><FontAwesomeIcon icon={faPenToSquare} /></button>
                                     <button onClick={() => deleteStore(ind)}><FontAwesomeIcon icon={faClose} /></button>
-                                    <button onClick={() => navigate(`/Store/${w.id_Parduotuve}`)}><FontAwesomeIcon icon={faInfo} /></button>
                                 </td>
                             </tr>
                         ))}
