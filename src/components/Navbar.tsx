@@ -45,7 +45,8 @@ const Navbar = () => {
 
                             {(isUser(Privileges.Admin)) ? <Link to="/workerlist">Darbuotojai</Link> : ""}
 
-                            {(isUser(Privileges.User) || isUser(Privileges.Admin)) ? <Link to="/order">Užsakymai</Link> : ""}
+                            {(isUser(Privileges.Worker) || isUser(Privileges.Admin)) ? <Link to="/order">Užsakymų administravimas</Link> : ""}
+                            {isUser(Privileges.User) ? <Link to="/orderhistory">Užsakymai</Link> : ""}
 
                             <button onClick={handleLogout}>Log out</button>
 

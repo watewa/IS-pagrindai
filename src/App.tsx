@@ -6,9 +6,14 @@ import Signup from './pages/Auth/Signup';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Worker from './pages/Worker/Worker';
-import Order from './pages/Order'
+
+import Order from './pages/Order/OrderList';
+import NewOrder from './pages/Order/NewOrder';
+import EditOrder from './pages/Order/EditOrder';
+import OrderHistory from './pages/Order/OrderHistory';
 
 import Store from './pages/Stores/Store';
+
 
 import Item from './pages/Item';
 
@@ -39,7 +44,12 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path='/order' element={isUser(Privileges.User) ? <Order /> : <Navigate to="/login" />} />
+
+            <Route path='/order' element={(isUser(Privileges.Worker) || isUser(Privileges.Admin)) ? <Order /> : <Navigate to="/login" />} />
+            <Route path='/neworder' element={(isUser(Privileges.Worker) || isUser(Privileges.Admin)) ? <NewOrder /> : <Navigate to="/login" />} />
+            <Route path='/editorder/:id' element={(isUser(Privileges.Worker) || isUser(Privileges.Admin)) ? <EditOrder /> : <Navigate to="/login" />} />
+            <Route path='/orderhistory' element={isUser(Privileges.User) ? <OrderHistory /> : <Navigate to="/login" />} />
+
             <Route path='/worker/:id' element={(isUser(Privileges.Worker) || isUser(Privileges.Admin)) ? <Worker /> : <Navigate to="/login" />} />
             <Route path='/editworker/:id' element={isUser(Privileges.Admin) ? <EditWorker /> : <Navigate to="/login" />} />
             <Route path='/newworker' element={isUser(Privileges.Admin) ? <NewWorker /> : <Navigate to="/login" />} />
