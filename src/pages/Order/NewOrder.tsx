@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext';
 
 const NewOrderPage = () => {
 
     const navigate = useNavigate();
-    const [date, setDate] = useState(new Date().toJSON().slice(0, 19).replace('T', ' '));
     const [status, setStatus] = useState("Nepatvirtintas");
     const [customer, setCustomer] = useState<Number>();
     
-    const [errors, setErrors] = useState<Array<string>>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const { user }: any = useAuthContext();
@@ -17,12 +15,10 @@ const NewOrderPage = () => {
     const CreateOrder = async (vnt: any) => {
         vnt.preventDefault();
         let errs: Array<string> = [];
-        setErrors([]);
-
-        setErrors(w => [...w, ...errs]);
 
         if (errs.length === 0 && !isLoading) {
             setIsLoading(true);
+            const date = new Date().toJSON().slice(0, 19).replace('T', ' ');
             try {
                 const res = await fetch(`${process.env.REACT_APP_APIURL}/api/orders/new`, {
                     method: "POST",
@@ -43,7 +39,7 @@ const NewOrderPage = () => {
                     throw Error(json.error);
                 }
             } catch (err: any) {
-                setErrors(w => [...w, err.message]);
+                console.log(err);
             } finally {
                 setIsLoading(false);
             }

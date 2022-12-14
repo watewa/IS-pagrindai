@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext';
 
@@ -6,7 +6,6 @@ const EditOrderPage = () => {
     const navigate = useNavigate();
     const [status, setStatus] = useState("Nepatvirtintas");
     
-    const [errors, setErrors] = useState<Array<string>>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const { id } = useParams();
     const { user }: any = useAuthContext();
@@ -14,9 +13,6 @@ const EditOrderPage = () => {
     const EditOrder = async (vnt: any) => {
         vnt.preventDefault();
         let errs: Array<string> = [];
-        setErrors([]);
-
-        setErrors(w => [...w, ...errs]);
 
         if (errs.length === 0 && !isLoading) {
             setIsLoading(true);
@@ -39,7 +35,7 @@ const EditOrderPage = () => {
                     throw Error(json.error);
                 }
             } catch (err: any) {
-                setErrors(w => [...w, err.message]);
+                console.log(err);
             } finally {
                 setIsLoading(false);
             }
