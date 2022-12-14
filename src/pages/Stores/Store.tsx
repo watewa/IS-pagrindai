@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
