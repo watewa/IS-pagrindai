@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext';
 
-const NewStore = () => {
+const EditStore = () => {
     const navigate = useNavigate();
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
     const [errors, setErrors] = useState<Array<string>>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-
+    const [users, setUsers] = useState<Array<any>>([]);
     const { user }: any = useAuthContext();
+    const [isFetching, setIsFetching] = useState(true);
+    const { id } = useParams();
 
     const CreateStore = async (vnt: any) => {
         vnt.preventDefault();
@@ -19,22 +21,21 @@ const NewStore = () => {
             errs.push("Vardas nenustatytas");
         }
         if (address.length === 0) {
-            errs.push("Pavardė nenustatyta");
+            errs.push("Adresas nenustatytas");
         }
-        
         setErrors(w => [...w, ...errs]);
 
         if (errs.length === 0 && !isLoading) {
             setIsLoading(true);
             try {
-                const res = await fetch(`${process.env.REACT_APP_APIURL}/api/store/new`, {
+                const res = await fetch(`${process.env.REACT_APP_APIURL}/api/store/edit`, {
                     method: "POST",
                     headers: {
                         'Authorization': `Bearer ${user.token}`,
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        vadovas: name,
+                        vardas: name,
                         adresas: address
                     })
                 });
@@ -51,26 +52,6 @@ const NewStore = () => {
             }
         }
     }
-
-    useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const res = await fetch(`${process.env.REACT_APP_APIURL}/api/store`, {
-                    headers: {
-                        'Authorization': `Bearer ${user.token}`
-                    }
-                });
-                const json = await res.json();
-                console.log(json);
-                if (!res.ok) {
-                    throw Error(json.error);
-                }
-            } catch (err: any) {
-                setErrors(w => [...w, err.message]);
-            }
-        }
-        fetchUsers();
-    }, [user]);
 
     return (
         <div className="box">
@@ -92,4 +73,4 @@ const NewStore = () => {
         </div>
     )
 }
-export default NewStore;
+export default EditStore;
