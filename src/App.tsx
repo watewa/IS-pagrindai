@@ -60,8 +60,8 @@ function App() {
 
             <Route path='/store' element={isUser(Privileges.Admin) ? <Store /> : <Navigate to="/login" />} />
             <Route path="/newstore" element={isUser(Privileges.Admin) ? <NewStore /> : <Navigate to="/login" />} />
-            <Route path="/infostore" element={isUser(Privileges.Admin) ? <InfoStore/> : <Navigate to="/login" />} />
-            <Route path="/sendemail" element={isUser(Privileges.Admin) ? <SendEmail/> : <Navigate to="/login" />} />
+            <Route path="/infostore" element={isUser(Privileges.Admin) ? <InfoStore /> : <Navigate to="/login" />} />
+            <Route path="/sendemail" element={isUser(Privileges.Admin) ? <SendEmail /> : <Navigate to="/login" />} />
             <Route path="/editstore/:id" element={isUser(Privileges.Admin) ? <EditStore /> : <Navigate to="/login" />} />
 
             <Route path='/item' element={isUser(Privileges.User) ? <Item /> : <Navigate to="/login" />} />
