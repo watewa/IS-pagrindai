@@ -8,7 +8,8 @@ const SendEmail = () => {
     const [errors, setErrors] = useState<Array<string>>([]);
     const { user }: any = useAuthContext();
 
-    const send = async () => {
+    const send = async (w:any) => {
+        w.preventDefault();
         let errs: Array<string> = [];
         if (buyer.length === 0) {
             errs.push('Neivestas pirkėjas');
@@ -56,7 +57,7 @@ const SendEmail = () => {
 
 
                 </div>
-                <button className="button" onClick={send}>Siųsti</button>
+                <button className="button" onClick={w => send(w)}>Siųsti</button>
             </form>
             {errors.length === 0 ? '' : errors.map(w => (
                 <p>{w}</p>
