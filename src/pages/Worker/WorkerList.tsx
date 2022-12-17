@@ -59,7 +59,7 @@ const ListPage = () => {
 
     return (
         <div className="box">
-            {isLoading ? <h2>Kraunama...</h2> : <>
+            {isLoading ?  <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : <>
                 <h2 className="center">Darbuotojų sąrašas:</h2>
                 <div className="flex-end">
                     <button className="button" onClick={() => navigate("/newworker")}>Naujas</button>

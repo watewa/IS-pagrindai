@@ -33,8 +33,8 @@ const Navbar = () => {
                 <nav>
                     {!user ? //not connected display login....
                         <>
-                            <Link to="/login">Log in</Link>
-                            <Link to="/signup">Sign up</Link>
+                            <Link to="/login">Prisijungti</Link>
+                            <Link to="/signup">Registruotis</Link>
                         </> :
                         <>
                             {(isUser(Privileges.User) || isUser(Privileges.Admin)) ? <Link to="/item">Prekė</Link> : ""}
@@ -48,7 +48,7 @@ const Navbar = () => {
                             {(isUser(Privileges.Worker) || isUser(Privileges.Admin)) ? <Link to="/order">Užsakymų administravimas</Link> : ""}
                             {isUser(Privileges.User) ? <Link to="/orderhistory">Užsakymai</Link> : ""}
 
-                            <button onClick={handleLogout}>Log out</button>
+                            <button className="logout" onClick={handleLogout}>Atsijungti</button>
 
                         </>}
                 </nav>

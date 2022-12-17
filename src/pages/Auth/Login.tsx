@@ -4,7 +4,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { user } :any = useAuthContext();
+    const { user }: any = useAuthContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { login, error, isLoading } = useLogin();
@@ -13,15 +13,16 @@ const Login = () => {
         e.preventDefault();
 
         const succ = await login(email, password);
-        if(succ){
+        if (succ) {
             navigate("/");
         }
     }
 
     return (
+
         <form className="login" onSubmit={handleSubmit}>
-            <h3>Log in</h3>
-            <label>Email:</label>
+            <h3>Prisijungimas</h3>
+            <label>Slapyvardis:</label>
             <input
                 type="text"
                 pattern="[A-Za-z0-9]+"
@@ -29,15 +30,16 @@ const Login = () => {
                 onChange={e => setEmail(e.target.value)}
                 value={email}
             />
-            <label>Password:</label>
+            <label>Slaptažodis:</label>
             <input
                 type="password"
                 onChange={e => setPassword(e.target.value)}
                 value={password}
             />
-            <button disabled={isLoading}>Log in</button>
+            {!isLoading ? <button disabled={isLoading}>Prisijungti</button> : ''}
             {error && <div className="error">{error}</div>}
-            {user && <div>logged in</div>}
+            {user && <div>Prijungtas</div>}
+            {isLoading ? <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}
         </form>
     )
 }
