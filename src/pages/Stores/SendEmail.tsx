@@ -23,7 +23,7 @@ const SendEmail = () => {
         }
         if (errs.length === 0) {
             try {
-                const rs = await fetch(`${process.env.REACT_APP_APIURL}/api/store/new`, {
+                const rs = await fetch(`${process.env.REACT_APP_APIURL}/api/store/sendemail`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${user.token}`,
