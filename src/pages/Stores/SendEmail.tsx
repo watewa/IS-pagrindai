@@ -10,6 +10,7 @@ const SendEmail = () => {
 
     const send = async (w:any) => {
         w.preventDefault();
+        setErrors([]);
         let errs: Array<string> = [];
         if (buyer.length === 0) {
             errs.push('Neivestas pirkėjas');
@@ -22,7 +23,7 @@ const SendEmail = () => {
         }
         if (errs.length === 0) {
             try {
-                await fetch(`${process.env.REACT_APP_APIURL}/api/store/new`, {
+                const rs = await fetch(`${process.env.REACT_APP_APIURL}/api/store/new`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${user.token}`,
@@ -33,6 +34,13 @@ const SendEmail = () => {
                         adresas: email
                     })
                 })
+                const json = await rs.json();
+                if(rs.ok){
+                    setErrors(['Sekmingai išsiusta']);
+                } else {
+                    setErrors(['Nepavyko išsiusti laiško']);
+                    console.log(json);
+                }
             } catch (err: any) {
                 console.log(err);
                 setErrors([err.message]);
