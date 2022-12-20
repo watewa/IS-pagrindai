@@ -31,7 +31,8 @@ const SendEmail = () => {
                     },
                     body: JSON.stringify({
                         vadovas: buyer,
-                        adresas: email
+                        adresas: email,
+                        ordernum: ordernum
                     })
                 })
                 const json = await rs.json();
