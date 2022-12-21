@@ -350,3 +350,22 @@ nav button:hover {
   }
 }
 /* loader end */
+
+#nematomas {
+  display:none
+}
+
+#table2 {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+#table2 td, tr {
+  border: none;
+  padding: 0px;
+  background-color: #f2f2f2;
+}
+
+#table2 td:hover, tr:hover {
+  background-color: #f2f2f2;
+}
