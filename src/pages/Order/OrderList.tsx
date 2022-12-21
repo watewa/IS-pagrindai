@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 const ListPage = () => {
@@ -11,6 +11,7 @@ const ListPage = () => {
     const { user }: any = useAuthContext();
     const [isLoading, setIsLoading] = useState(true);
     const [errors, setErrors] = useState<Array<string>>([]);
+    var suma = 0;
     useEffect(() => {
         const fetchOrders = async () => {
             try {
@@ -21,7 +22,6 @@ const ListPage = () => {
                 });
                 const json = await res.json();
                 if (res.ok) {
-                    console.log(json);
                     setOrders(json.orders);
                 } else {
                     throw Error(json.error);
@@ -63,7 +63,6 @@ const ListPage = () => {
                 });
                 const json = await res.json();
                 if (res.ok) {
-                    console.log(json);
                     setOrders(json.orders);
                 } else {
                     throw Error(json.error);
@@ -91,6 +90,8 @@ const ListPage = () => {
                             <th>Data</th>
                             <th>Būsena</th>
                             <th>Užsakė</th>
+                            <th>Prekės</th>
+                            <th>Suma</th>
                             <th>Operacijos</th>
                         </tr>
                         {orders.map((w, ind) => (
@@ -98,7 +99,21 @@ const ListPage = () => {
                                 <td>{w.nr}</td>
                                 <td>{w.sukurimo_data.split('T')[0]}</td>
                                 <td>{w.busena}</td>
-                                <td>{w.fk_Klientasid_Klientas}</td>
+                                <td>{w.VarPav}</td>
+                                <td>
+                                    {w.products.length > 0 ? <table id="table2">
+                                        <tbody>
+                                            {w.products.map((ww: { pavadinimas: string; Kiekis: number; kaina: number}, ind2: Key ) => (
+                                                <tr key={ind2}>
+                                                    <td>{ww.pavadinimas}</td>
+                                                    <td>x{ww.Kiekis}</td>
+                                                    <td id="nematomas">{suma = suma + ww.Kiekis * ww.kaina}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table> : <h3>Nėra</h3>}
+                                </td>
+                                <td>{suma.toFixed(2)} Eur<div id="nematomas">{suma = 0}</div></td>
                                 <td>
                                     <button onClick={() => navigate(`/editorder/${w.id_Uzsakymas}`)}><FontAwesomeIcon icon={faPenToSquare} /></button>
                                     <button onClick={() => deleteOrder(w.id_Uzsakymas)}><FontAwesomeIcon icon={faClose} /></button>
