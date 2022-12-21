@@ -62,11 +62,11 @@ const Worker = () => {
 
     return (
         <div className="box">
-            {isLoading ? <h2>Kraunama...</h2> : <>
+            {isLoading ?  <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : <>
                 <h2 className="center">Sveiki sugrįže {worker.vardas} {worker.pavarde}!</h2>
                 <h3 className="center">Jūsų šiandienos tvarkaraštis:</h3>
                 <div>
-                    {isFetchingTasks ? <h2>Kraunama...</h2> : <>
+                    {isFetchingTasks ?  <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : <>
                         <table id="table">
                             <tbody>
                                 <tr>

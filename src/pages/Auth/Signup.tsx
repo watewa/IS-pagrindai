@@ -27,8 +27,8 @@ const Signup = () => {
 
     return (
         <form className="login" onSubmit={handleSubmit}>
-            <h3>Sign up</h3>
-            <label>Email:</label>
+            <h3>Registracija</h3>
+            <label>Slapyvardis:</label>
             <input
                 type="text"
                 pattern="[A-Za-z0-9]+"
@@ -36,14 +36,15 @@ const Signup = () => {
                 onChange={e => setEmail(e.target.value)}
                 value={email}
             />
-            <label>Password:</label>
+            <label>Slaptažodis:</label>
             <input
                 type="password"
                 onChange={e => setPassword(e.target.value)}
                 value={password}
             />
-            <button disabled={isLoading}>Sign up</button>
+            {!isLoading ? <button disabled={isLoading}>Registruotis</button> : ''}
             {error && <div className="error">{error}</div>}
+            {isLoading ? <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : ''}
         </form>
     )
 }
